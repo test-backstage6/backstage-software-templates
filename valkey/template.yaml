@@ -47,8 +47,9 @@ spec:
         description: This is ${{ parameters.component_id }}
         repoUrl: github.com?owner=test-backstage6&repo=saas
         protectDefaultBranch: false
-        repoVisibility: private
+        repoVisibility: public
         targetPath: services/${{parameters.component_id}}
+        sourcePath: ./
 
     - id: register
       name: Register
