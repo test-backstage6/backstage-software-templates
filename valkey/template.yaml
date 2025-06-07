@@ -20,12 +20,13 @@ spec:
           description: Provide a component (microservice) name
           pattern: '^([a-zA-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
         environment:
-          title: Environment
+          title: Size
           type: string
           description: The environment where this component will be deployed
           enum:
-            - dev
-            - prod
+            - s1
+            - m1
+            - l1
 
   steps:
     - id: fetch-base
@@ -35,7 +36,7 @@ spec:
         url: ./template
         values:
           app_name: ${{parameters.component_id}}
-          app_env: ${{parameters.environment}}
+          app_size: ${{parameters.environment}}
 
     - id: publish
       name: Publish
@@ -44,9 +45,10 @@ spec:
         allowedHosts:
           - github.com
         description: This is ${{ parameters.component_id }}
-        repoUrl: github.com?owner=test-backstage6&repo=${{parameters.component_id}}
+        repoUrl: github.com?owner=test-backstage6&repo=saas
         protectDefaultBranch: false
-        repoVisibility: public
+        repoVisibility: private
+        targetPath: services/${{parameters.component_id}}
 
     - id: register
       name: Register
