@@ -45,11 +45,9 @@ spec:
         allowedHosts:
           - github.com
         description: This is ${{ parameters.component_id }}
-        repoUrl: github.com?owner=test-backstage6&repo=saas
+        repoUrl: github.com?owner=test-backstage6&repo=${{parameters.component_id}}
         protectDefaultBranch: false
         repoVisibility: public
-        targetPath: services/${{parameters.component_id}}
-        sourcePath: ./
 
     - id: register
       name: Register
