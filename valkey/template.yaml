@@ -52,6 +52,16 @@ spec:
         sourcePath: ./
         automerge: true
 
+    - id: wait-for-merge
+      name: Wait for PR to be merged
+      action: github:actions:dispatch
+      input:
+        repoUrl: github.com?owner=test-backstage6&repo=saas
+        workflowId: merge-check
+        branchOrTagName: main
+        workflowInputs:
+          pr_branch: add-${{ parameters.component_id }}
+
     - id: register
       name: Register
       action: catalog:register
