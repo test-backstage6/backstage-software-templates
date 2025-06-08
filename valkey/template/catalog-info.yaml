@@ -7,9 +7,13 @@ metadata:
     github.com/project-slug: test-backstage6/${{values.app_name}}
     backstage.io/techdocs-ref: dir:.
   links:
+    - url: "${{values.app_name}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
+      title: "${{values.app_name}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
+      icon: database
     - url: https://dashboard.example.com
       title: Grafana dashboard for ${{values.app_name}}
       icon: dashboard
+
 spec:
   type: service
   owner: development
