@@ -52,24 +52,11 @@ spec:
         sourcePath: ./
         automerge: true
 
-    - id: wait-for-merge
-      name: Wait for PR to be merged
-      action: github:actions:dispatch
-      input:
-        repoUrl: github.com?owner=test-backstage6&repo=saas
-        workflowId: merge-check
-        branchOrTagName: main
-        workflowInputs:
-          pr_branch: add-${{ parameters.component_id }}
-
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: https://github.com/test-backstage6/saas
-        catalogInfoPath: "/${{parameters.component_id}}/catalog-info.yaml"
-
   output:
     links:
       - title: Repository
         url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Pull Request
+        url: ${{ steps['publish'].output.pullRequestUrl }}
+      - title: Register after merge
+        url: ${{ steps['publish'].output.remoteUrl }}/blob/main/${{parameters.component_id}}/catalog-info.yaml
