@@ -40,16 +40,17 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:github:pull-request
       input:
         allowedHosts:
           - github.com
-        description: This is ${{ parameters.component_id }}
+        description: ${{ parameters.component_id }} configuration
         repoUrl: github.com?owner=test-backstage6&repo=saas
-        protectDefaultBranch: false
-        repoVisibility: public
+        branchName: add-${{ parameters.component_id }}
+        title: Add ${{ parameters.component_id }} configuration
         targetPath: ./${{parameters.component_id}}
         sourcePath: ./
+        automerge: true
 
     - id: register
       name: Register
