@@ -59,4 +59,4 @@ spec:
       - title: Pull Request
         url: ${{ steps['publish'].output.pullRequestUrl }}
       - title: Register after merge
-        url: ${{ steps['publish'].output.remoteUrl }}/blob/main/${{parameters.component_id}}/catalog-info.yaml
+        url: https://github.com/test-backstage6/saas/blob/main/${{parameters.component_id}}/catalog-info.yaml
