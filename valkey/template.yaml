@@ -87,5 +87,6 @@ spec:
         length: 16
 
   output:
-      text:
-        - "Your password to valkey cluster is: ${{ steps.generate_password.output.password }}. Write it down! You won't have access to it later!"
+    text:
+      - title: "Valkey Cluster Password"
+        text: "Your password to valkey cluster is: ${{ steps.generate_password.output.password }}. Write it down! You won't have access to it later!"
