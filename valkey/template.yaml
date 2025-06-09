@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: valkey-template
-  title: Valkey template
-  description: Provisions Valkey db cluster
+  name: valkey-sentinel-template
+  title: Valkey sentinel template
+  description: Provisions Valkey sentinel cluster
 spec:
   owner: development
   type: service
@@ -15,22 +15,22 @@ spec:
         - environment
       properties:
         component_id:
-          title: Component name
+          title: Valkey cluster name
           type: string
-          description: Provide a component (microservice) name
+          description: Provide a valkey cluster name
           pattern: '^([a-zA-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
         environment:
           title: Size
           type: string
-          description: The environment where this component will be deployed
+          description: Size of valkey cluster
           enum:
             - s1
             - m1
             - l1
         policy:
-          title: maxmemoryPolicy
+          title: Eviction policy
           type: string
-          description: policy for valkey
+          description: Valkey keys eviction policy
           enum:
             - volatile-ttl
             - allkeys-lru
