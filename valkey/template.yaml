@@ -51,6 +51,7 @@ spec:
           app_name: ${{parameters.component_id}}
           app_size: ${{parameters.environment}}
           app_policy: ${{parameters.policy}}
+          app_user: ${{ user.entity.metadata.name }}
 
     - id: publish
       name: Publish
