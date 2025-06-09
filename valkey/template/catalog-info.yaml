@@ -6,6 +6,7 @@ metadata:
   annotations:
     github.com/project-slug: test-backstage6/${{values.app_name}}
     backstage.io/techdocs-ref: dir:.
+    owner: ${{values.app_user}}
   links:
     - url: "${{values.app_name}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
       title: "${{values.app_name}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
@@ -16,5 +17,5 @@ metadata:
 
 spec:
   type: service
-  owner: ${{ values.app_user }}
+  owner: development
   lifecycle: experimental
