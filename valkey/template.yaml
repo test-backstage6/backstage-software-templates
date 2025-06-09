@@ -52,9 +52,9 @@ spec:
         sourcePath: ./
         automerge: true
         token: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - id: wait
-      name: Sleep before register
+      name: Waiting for merge
       action: debug:wait
       input:
         seconds: 20
@@ -63,7 +63,7 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps['publish'].output.remoteUrl }}
+        repoContentsUrl: github.com?owner=test-backstage6&repo=saas
         catalogInfoPath: "/${{parameters.component_id}}/catalog-info.yaml"
 
   output:
