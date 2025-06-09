@@ -77,7 +77,7 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: https://github.com/test-backstage6/saas
+        repoContentsUrl: https://github.com/test-backstage6/saas/blob/main/
         catalogInfoPath: "/${{parameters.component_id}}/catalog-info.yaml"
 
   output:
