@@ -46,7 +46,6 @@ spec:
           - github.com
         description: ${{ parameters.component_id }} configuration
         repoUrl: github.com?owner=test-backstage6&repo=saas
-        token: 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
         branchName: add-${{ parameters.component_id }}
         title: Add ${{ parameters.component_id }} configuration
         targetPath: ./${{parameters.component_id}}
