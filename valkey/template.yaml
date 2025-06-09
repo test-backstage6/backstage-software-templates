@@ -27,6 +27,19 @@ spec:
             - s1
             - m1
             - l1
+        policy:
+          title: maxmemoryPolicy
+          type: string
+          description: policy for valkey
+          enum:
+            - volatile-ttl
+            - allkeys-lru
+            - volatile-lru
+            - allkeys-random
+            - volatile-random
+            - volatile-lfu
+            - allkeys-lfu
+            - noeviction
 
   steps:
     - id: fetch-base
@@ -37,6 +50,7 @@ spec:
         values:
           app_name: ${{parameters.component_id}}
           app_size: ${{parameters.environment}}
+          app_policy: ${{parameters.policy}}
 
     - id: publish
       name: Publish
@@ -63,7 +77,7 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: github.com/test-backstage6/saas
+        repoContentsUrl: https://github.com/test-backstage6/saas
         catalogInfoPath: "/${{parameters.component_id}}/catalog-info.yaml"
 
   output:
