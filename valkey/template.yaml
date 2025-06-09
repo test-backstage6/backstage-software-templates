@@ -82,7 +82,5 @@ spec:
 
   output:
     text:
-      - title: "FQDN: ${{parameters.component_id}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
-        text: ""
-      - title: "Your password to valkey cluster is: mojehaslo321414. Write it down! You won't have access to it later!"
+      - title: "fqdn:port:password - ${{parameters.component_id}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379:mojehaslo321414"
         text: ""
