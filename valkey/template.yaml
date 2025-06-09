@@ -51,6 +51,7 @@ spec:
         targetPath: ./${{parameters.component_id}}
         sourcePath: ./
         automerge: true
+        token: ${{ secrets.GITHUB_TOKEN }}
 
   output:
     links:
