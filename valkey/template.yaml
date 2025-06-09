@@ -66,7 +66,7 @@ spec:
         sourcePath: ./
         automerge: true
         token: ${{ secrets.GITHUB_TOKEN }}
-
+    
     - id: wait
       name: Waiting for merge
       action: debug:wait
@@ -80,11 +80,12 @@ spec:
         repoContentsUrl: https://github.com/test-backstage6/saas/blob/main/
         catalogInfoPath: "/${{parameters.component_id}}/catalog-info.yaml"
 
+    - id: generate_password
+      name: Generate password
+      action: debug:password
+      input:
+        length: 16
+
   output:
     links:
-      - title: Repository
-        url: ${{ steps['publish'].output.remoteUrl }}
-      - title: Pull Request
-        url: ${{ steps['publish'].output.pullRequestUrl }}
-      - title: Register after merge
-        url: https://github.com/test-backstage6/saas/blob/main/${{parameters.component_id}}/catalog-info.yaml
+      - text: "Your password to valkey cluster is: ${{ steps.generate_password.output.password }}. Write it down! You won't have access to it later!"
