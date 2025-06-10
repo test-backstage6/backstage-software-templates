@@ -4,8 +4,8 @@ metadata:
   annotations:
     helm.sdk.operatorframework.io/reconcile-period: 1h
   labels:
-    argocd.argoproj.io/instance: ${{values.app_user}}-${{values.app_name}}
-  name: ${{values.app_user}}-${{values.app_name}}
+    argocd.argoproj.io/instance: "${{values.app_user}}-${{values.app_name}}"
+  name: "${{values.app_user}}-${{values.app_name}}"
   namespace: dsa-test
 spec:
   maxmemoryPolicy: ${{values.app_policy}}
