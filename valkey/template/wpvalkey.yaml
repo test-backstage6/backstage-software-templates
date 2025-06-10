@@ -5,7 +5,6 @@ metadata:
     helm.sdk.operatorframework.io/reconcile-period: 1h
   labels:
     argocd.argoproj.io/instance: "${{values.app_user}}-${{values.app_name}}"
-    argocd.argoproj.io/project: "${{values.app_group}}"
   name: "${{values.app_user}}-${{values.app_name}}"
   namespace: dsa-test
 spec:
