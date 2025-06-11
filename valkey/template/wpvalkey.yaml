@@ -1,12 +1,24 @@
-apiVersion: saas.wp.pl/v1alpha1
-kind: WpValkey
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  annotations:
-    helm.sdk.operatorframework.io/reconcile-period: 1h
-  labels:
-    argocd.argoproj.io/instance: "${{values.app_name}}"
-  name: "${{values.app_name}}"
-  namespace: wpsaas-${{values.app_user}}
+  name: ${{values.app_name}}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
-  maxmemoryPolicy: ${{values.app_policy}}
-  size: ${{values.app_size}}
+  project: wpsaas-${{values.app_user}}
+  sources:
+    - repoURL: https://nexus-rm.grupawp.pl/repository/saas-valkey-sentinel/
+      chart: saas-valkey-sentinel
+      targetRevision: 1.0.1
+      helm:
+        values: |
+          maxmemoryPolicy: ${{values.app_policy}}
+          size: ${{values.app_size}}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wpsaas-${{values.app_user}}
+  syncPolicy:
+    automated:
+      selfHeal: true
