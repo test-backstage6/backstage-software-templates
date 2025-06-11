@@ -59,11 +59,11 @@ spec:
       input:
         allowedHosts:
           - github.com
-        description: ${{ steps.fetch-base.output.values.app_name }} configuration
+        description: ${{ steps.fetch-base.input.values.app_name }} configuration
         repoUrl: github.com?owner=test-backstage6&repo=saas
-        branchName: add-${{ steps.fetch-base.output.values.app_name }}
-        title: Add ${{ steps.fetch-base.output.values.app_name }} configuration
-        targetPath: ./${{ steps.fetch-base.output.values.app_name }}
+        branchName: add-${{ steps.fetch-base.input.values.app_name }}
+        title: Add ${{ steps.fetch-base.input.values.app_name }} configuration
+        targetPath: ./${{ steps.fetch-base.input.values.app_name }}
         sourcePath: ./
         automerge: true
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,4 +79,4 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: https://github.com/test-backstage6/saas/blob/main/
-        catalogInfoPath: "/${{ steps.fetch-base.output.values.app_name }}/catalog-info.yaml"
+        catalogInfoPath: "/${{ steps.fetch-base.input.values.app_name }}/catalog-info.yaml"
