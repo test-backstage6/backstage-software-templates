@@ -15,9 +15,9 @@ spec:
         - environment
       properties:
         component_id:
-          title: Valkey cluster name
+          title: Valkey cluster name.
           type: string
-          description: Provide a valkey cluster name
+          description: Provide a valkey cluster name. Prefix vk- will be added automatically
           pattern: '^([a-zA-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
         environment:
           title: Size
@@ -48,7 +48,7 @@ spec:
       input:
         url: ./template
         values:
-          app_name: ${{parameters.component_id}}
+          app_name: vk-${{parameters.component_id}}
           app_size: ${{parameters.environment}}
           app_policy: ${{parameters.policy}}
           app_user: ${{ user.entity.metadata.name }}
@@ -59,11 +59,11 @@ spec:
       input:
         allowedHosts:
           - github.com
-        description: ${{ parameters.component_id }} configuration
+        description: ${{ steps.fetch-base.output.values.app_name }} configuration
         repoUrl: github.com?owner=test-backstage6&repo=saas
-        branchName: add-${{ parameters.component_id }}
-        title: Add ${{ parameters.component_id }} configuration
-        targetPath: ./${{parameters.component_id}}
+        branchName: add-${{ steps.fetch-base.output.values.app_name }}
+        title: Add ${{ steps.fetch-base.output.values.app_name }} configuration
+        targetPath: ./${{ steps.fetch-base.output.values.app_name }}
         sourcePath: ./
         automerge: true
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,9 +79,4 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: https://github.com/test-backstage6/saas/blob/main/
-        catalogInfoPath: "/${{parameters.component_id}}/catalog-info.yaml"
-
-  output:
-    text:
-      - title: "fqdn:port:password - ${{parameters.component_id}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379:mojehaslo321414"
-        text: ""
+        catalogInfoPath: "/${{ steps.fetch-base.output.values.app_name }}/catalog-info.yaml"

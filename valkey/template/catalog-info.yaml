@@ -17,5 +17,5 @@ metadata:
 
 spec:
   type: service
-  owner: development
+  owner: ${{values.app_user}}
   lifecycle: experimental
