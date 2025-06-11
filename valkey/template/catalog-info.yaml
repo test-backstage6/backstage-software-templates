@@ -8,11 +8,14 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     owner: ${{values.app_user}}
   links:
-    - url: "${{values.app_name}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
-      title: "${{values.app_name}}-wp-valkey.wp-valkey.k8s-devel.cloud.dc-2.dcwp.pl:6379"
+    - url: "https://argocd-dev.grupawp.pl/applications/argocd/${{values.app_name}}?resource=&node=%2FConfigMap%2Fwpsaas-${{values.app_user}}%2F${{values.app_name}}-wp-valkey-cm%2F0"
+      title: "connection details"
       icon: database
-    - url: http://grafana.k8s-devel.dc-2.dcwp.pl/d/6581e46e4e5c7ba40a07646395ef7b23/kubernetes-compute-resources-pod?orgId=1&refresh=10s&var-datasource=default&var-cluster=&var-namespace=saas-valkey-sentinel&var-pod=mydb1334-wp-valkey-node-0-x-mydb1334-dsa-test-inclus-d79f79dd41
-      title: Grafana dashboard for ${{values.app_name}}
+    - url: "https://argocd-dev.grupawp.pl/applications/argocd/${{values.app_name}}?resource=&node=%2FSecret%2Fwpsaas-${{values.app_user}}%2F${{values.app_name}}-wp-valkey-secret%2F0"
+      title: "password"
+      icon: database
+    - url: "http://grafana.k8s-devel.dc-2.dcwp.pl/d/6581e46e4e5c7ba40a07646395ef7b23/kubernetes-compute-resources-pod?orgId=1&refresh=10s&var-datasource=default&var-cluster=&var-namespace=saas-valkey-sentinel&var-pod=mydb1334-wp-valkey-node-0-x-mydb1334-dsa-test-inclus-d79f79dd41"
+      title: "grafana dashboard"
       icon: dashboard
 
 spec:
