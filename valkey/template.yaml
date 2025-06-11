@@ -15,7 +15,7 @@ spec:
         - environment
       properties:
         component_id:
-          title: Valkey cluster name.
+          title: "vk-"
           type: string
           description: Provide a valkey cluster name. Prefix vk- will be added automatically
           pattern: '^([a-zA-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
