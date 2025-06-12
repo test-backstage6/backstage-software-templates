@@ -15,9 +15,9 @@ spec:
         - environment
       properties:
         component_id:
-          title: "vk-"
+          title: "vks-"
           type: string
-          description: Provide a valkey cluster name. Prefix vk- will be added automatically
+          description: Provide a valkey cluster name. Prefix vks- will be added automatically
           pattern: '^([a-zA-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
         environment:
           title: Size
