@@ -48,7 +48,7 @@ spec:
       input:
         url: ./template
         values:
-          app_name: vk-${{parameters.component_id}}
+          app_name: vks-${{parameters.component_id}}
           app_size: ${{parameters.environment}}
           app_policy: ${{parameters.policy}}
           app_user: ${{ user.entity.metadata.name }}
@@ -59,11 +59,11 @@ spec:
       input:
         allowedHosts:
           - github.com
-        description: vk-${{parameters.component_id}} configuration
+        description: vks-${{parameters.component_id}} configuration
         repoUrl: github.com?owner=test-backstage6&repo=saas
-        branchName: add-vk-${{parameters.component_id}}
-        title: Add vk-${{parameters.component_id}} configuration
-        targetPath: ./vk-${{parameters.component_id}}
+        branchName: add-vks-${{parameters.component_id}}
+        title: Add vks-${{parameters.component_id}} configuration
+        targetPath: ./vks-${{parameters.component_id}}
         sourcePath: ./
         automerge: true
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,4 +79,4 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: https://github.com/test-backstage6/saas/blob/main/
-        catalogInfoPath: "/vk-${{parameters.component_id}}/catalog-info.yaml"
+        catalogInfoPath: "/vks-${{parameters.component_id}}/catalog-info.yaml"
