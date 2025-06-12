@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: ${{values.app_name}}
   description: New Valkey db cluster named ${{values.app_name}}
@@ -19,6 +19,6 @@ metadata:
       icon: dashboard
 
 spec:
-  type: service
+  type: database
   owner: user:${{values.app_user}}
   lifecycle: experimental
