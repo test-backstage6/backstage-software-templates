@@ -20,5 +20,5 @@ metadata:
 
 spec:
   type: database
-  owner: user:${{values.app_user}}
+  owner: user:default/${{values.app_user}}
   lifecycle: experimental
