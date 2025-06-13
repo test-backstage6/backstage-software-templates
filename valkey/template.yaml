@@ -5,7 +5,7 @@ metadata:
   title: Valkey sentinel template
   description: Provisions Valkey sentinel cluster
 spec:
-  owner: user:default/pszustakowski
+  owner: teama
   type: service
 
   parameters:
