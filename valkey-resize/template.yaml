@@ -5,7 +5,7 @@ metadata:
   title: Valkey resize template
   description: Resizes Valkey db cluster
 spec:
-  owner: development
+  owner: teama
   type: service
 
   parameters:
