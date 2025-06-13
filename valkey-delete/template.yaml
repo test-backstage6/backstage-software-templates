@@ -5,6 +5,7 @@ metadata:
   title: Valkey delete template
   description: Deletes Valkey db cluster
 spec:
+  owner: teama
   type: service
 
   parameters:
